@@ -7,9 +7,8 @@ EVRInitError ControllerDriver::Activate(uint32_t unObjectId)
 
 	PropertyContainerHandle_t props = VRProperties()->TrackedDeviceToPropertyContainer(driverId); //this gets a container object where you store all the information about your driver
 
-	VRProperties()->SetUint64Property(props, Prop_CurrentUniverseId_Uint64, 2);
 	VRProperties()->SetStringProperty(props, Prop_InputProfilePath_String, "{example}/input/controller_profile.json"); //tell OpenVR where to get your driver's Input Profile
-	VRProperties()->SetInt32Property(props, Prop_ControllerRoleHint_Int32, ETrackedControllerRole::TrackedControllerRole_Treadmill); //tells OpenVR what kind of device this is
+	VRProperties()->SetInt32Property(props, Prop_ControllerRoleHint_Int32, ETrackedControllerRole::TrackedControllerRole_OptOut); //tells OpenVR what kind of device this is
 	VRProperties()->SetBoolProperty(props, Prop_NeverTracked_Bool, true);
 	VRProperties()->SetStringProperty(props, Prop_SerialNumber_String, "example_controler");
 	//VRProperties()->SetInt32Property(props, Prop_Axis0Type_Int32, k_eControllerAxis_TrackPad);
