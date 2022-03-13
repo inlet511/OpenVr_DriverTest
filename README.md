@@ -1,5 +1,9 @@
 # OpenVr_DriverTest
 A test driver for OpenVr
+## Reference
+https://github.com/terminal29/Simple-OpenVR-Driver-Tutorial
+https://github.com/finallyfunctional/openvr-driver-example
+
 ## Build(windows)
 1. Clone this repository
 2. Create a directory in the folder, name it "build" or something else
