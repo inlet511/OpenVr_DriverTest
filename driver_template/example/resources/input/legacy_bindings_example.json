@@ -19,7 +19,7 @@
 			  }
 		   },
 		   "mode" : "trackpad",
-		   "path" : "/user/hand/left/input/trackpad"
+		   "path" : "/user/treadmill/input/trackpad"
 		},
 		{
 		   "inputs" : {
@@ -34,7 +34,7 @@
 			  }
 		   },
 		   "mode" : "joystick",
-		   "path" : "/user/hand/left/input/joystick"
+		   "path" : "/user/treadmill/input/joystick"
 		}
 	 ]
       }

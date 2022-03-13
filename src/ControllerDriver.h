@@ -73,9 +73,9 @@ private:
 	VRInputComponentHandle_t joystickXHandle;
 	VRInputComponentHandle_t trackpadXHandle;
 
-	VRInputComponentHandle_t trackpadTouchHandle;
-	VRInputComponentHandle_t trackpadClickHandle;
+	//VRInputComponentHandle_t trackpadTouchHandle;
+	//VRInputComponentHandle_t trackpadClickHandle;
 
-	VRInputComponentHandle_t joyStickTouchHandle;
-	VRInputComponentHandle_t joyStickClickHandle;
+	//VRInputComponentHandle_t joyStickTouchHandle;
+	//VRInputComponentHandle_t joyStickClickHandle;
 };
