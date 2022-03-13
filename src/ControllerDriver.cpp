@@ -8,13 +8,13 @@ EVRInitError ControllerDriver::Activate(uint32_t unObjectId)
 	PropertyContainerHandle_t props = VRProperties()->TrackedDeviceToPropertyContainer(driverId); //this gets a container object where you store all the information about your driver
 
 	VRProperties()->SetStringProperty(props, Prop_InputProfilePath_String, "{example}/input/controller_profile.json"); //tell OpenVR where to get your driver's Input Profile
-	VRProperties()->SetInt32Property(props, Prop_ControllerRoleHint_Int32, ETrackedControllerRole::TrackedControllerRole_OptOut); //tells OpenVR what kind of device this is
-	VRProperties()->SetBoolProperty(props, Prop_NeverTracked_Bool, true);
+	VRProperties()->SetInt32Property(props, Prop_ControllerRoleHint_Int32, ETrackedControllerRole::TrackedControllerRole_LeftHand); //tells OpenVR what kind of device this is
+	//VRProperties()->SetBoolProperty(props, Prop_NeverTracked_Bool, true);
 	VRProperties()->SetStringProperty(props, Prop_SerialNumber_String, "example_controler");
 	//VRProperties()->SetInt32Property(props, Prop_Axis0Type_Int32, k_eControllerAxis_TrackPad);
 	//VRProperties()->SetInt32Property(props, Prop_Axis2Type_Int32, k_eControllerAxis_Joystick);
 // 
-	//VRDriverInput()->CreateBooleanComponent(props, "/input/anything/x", &boolHandle);
+	VRDriverInput()->CreateBooleanComponent(props, "/input/anything/x", &boolHandle);
 
 	VRDriverInput()->CreateScalarComponent(props, "/input/joystick/x", &joystickXHandle, EVRScalarType::VRScalarType_Absolute, EVRScalarUnits::VRScalarUnits_NormalizedTwoSided);
 	VRDriverInput()->CreateScalarComponent(props, "/input/joystick/y", &joystickYHandle, EVRScalarType::VRScalarType_Absolute,EVRScalarUnits::VRScalarUnits_NormalizedTwoSided); 
@@ -64,7 +64,7 @@ void ControllerDriver::RunFrame()
 	VRDriverInput()->UpdateBooleanComponent(joyStickClickHandle, true, 0);
 	VRDriverInput()->UpdateBooleanComponent(joyStickTouchHandle, true, 0);
 
-	/*VRDriverInput()->UpdateBooleanComponent(boolHandle, r>50, 0);*/
+	VRDriverInput()->UpdateBooleanComponent(boolHandle, r>50, 0);
 }
 
 void ControllerDriver::Deactivate()

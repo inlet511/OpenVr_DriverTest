@@ -1,11 +1,10 @@
 {
   "jsonid": "input_profile",
   "controller_type": "example_controller",
-  "legacy_binding" : "{example}/input/legacy_bindings_example.json",
   "device_class" : "TrackedDeviceClass_Controller",
-  "input_bindingui_mode": "single_device",
+  "input_bindingui_mode": "controller_handed",
   "input_bindingui_left": {
-		"image": "{example}/icons/game_controller.png"
+		"image": "{example}/icons/game_controller.svg"
   },
   "should_show_binding_errors": true,
   "input_source": {

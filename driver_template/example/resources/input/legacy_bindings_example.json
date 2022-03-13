@@ -10,19 +10,31 @@
 		   "inputs" : {
 			  "position" : {
 				 "output" : "/actions/legacy/in/left_axis0_value"
+			  },
+			  "click":{
+				  "output" : "/actions/legacy/in/left_axis0_press"
+			  },
+			  "touch":{
+				  "output" : "/actions/legacy/in/left_axis0_touch"
 			  }
 		   },
 		   "mode" : "trackpad",
-		   "path" : "/user/treadmill/input/trackpad"
+		   "path" : "/user/hand/left/input/trackpad"
 		},
 		{
 		   "inputs" : {
 			  "position" : {
 				 "output" : "/actions/legacy/in/left_axis0_value"
+			  },
+			  "click" :{
+				  "output": "/actions/legacy/in/left_axis0_press"
+			  },
+			  "touch":{
+				  "output" : "/actions/legacy/in/left_axis0_touch"
 			  }
 		   },
 		   "mode" : "joystick",
-		   "path" : "/user/treadmill/input/joystick"
+		   "path" : "/user/hand/left/input/joystick"
 		}
 	 ]
       }
