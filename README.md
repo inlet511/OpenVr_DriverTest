@@ -28,6 +28,7 @@ https://github.com/finallyfunctional/openvr-driver-example
 ![ActiveController](https://github.com/inlet511/OpenVr_DriverTest/blob/main/images/ActiveController.png)
 2. Now I can see my controller in "TEST CONTROLLER" page of SteamVR, but I failed to get my controller working in any vr game. What can I do to make it work in games?
 3. I tried to set my controller's ETrackedControllerRole to TrackedControllerRole_Treadmill and TrackedControllerRole_OptOut which seems to be fair, but in both of these cases, the "TEST CONTROLLER" page doesn't show the input correct(There's some screenshots in my git repository). Am I doing it wrong? Now I have to set it to TrackedControllerRole_LeftHand (or RightHand), but this seems to be conflicting the original controllers.....
+
 Treadmill-Not working correctly in TEST CONTROLLER
 ![Treadmill](https://github.com/inlet511/OpenVr_DriverTest/blob/main/images/treadmill.png)
 OptOut-Not working correctly in TEST CONTROLLER
