@@ -18,7 +18,7 @@
         66,
         59
       ],
-      "order": 2
+      "order": 3
     },
     "/input/trigger": {
       "type": "trigger",
@@ -37,6 +37,14 @@
       ],
       "type": "button",
       "order": 0
-    }
+    },
+	"/input/joystick":{
+		"type":"joystick",
+		"click":true,
+		"touch":true,
+		"binding_image_point":"[0,0],
+		"order":2
+	}
+	
   }
 }

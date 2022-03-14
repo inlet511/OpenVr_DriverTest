@@ -57,17 +57,46 @@ DriverPose_t ControllerDriver::GetPose()
 
 void ControllerDriver::RunFrame()
 {
-	int r = rand() % 100;
+	// int r = rand() % 100;
 
-	VRDriverInput()->UpdateScalarComponent(trackpadYHandle, 0.95f, 0);
-	VRDriverInput()->UpdateScalarComponent(trackpadXHandle, (r > 50) ? -0.5f : 0.5f, 0); 
+	// Forward and back
+	if (GetAsyncKeyState(87) & 0x8000) // W
+	{
+		VRDriverInput()->UpdateScalarComponent(trackpadYHandle, 0.95f, 0);
+		VRDriverInput()->UpdateScalarComponent(joystickYHandle, 0.95f, 0);
+	} else if (GetAsyncKeyState(83) & 0x8000) // S
+	{
+		VRDriverInput()->UpdateScalarComponent(trackpadYHandle, -0.95f, 0);
+		VRDriverInput()->UpdateScalarComponent(joystickYHandle, -0.95f, 0);
+	} else
+	{
+		VRDriverInput()->UpdateScalarComponent(trackpadYHandle, 0, 0);
+		VRDriverInput()->UpdateScalarComponent(joystickYHandle, 0, 0);
+	}
+
+	// Left and Right
+	if (GetAsyncKeyState(65) & 0x8000) // A
+	{
+		VRDriverInput()->UpdateScalarComponent(trackpadXHandle, -0.95f, 0);
+		VRDriverInput()->UpdateScalarComponent(joystickXHandle, -0.95f, 0);
+	} else if (GetAsyncKeyState(68) & 0x8000) //D
+	{
+		VRDriverInput()->UpdateScalarComponent(trackpadXHandle, 0.95f, 0);
+		VRDriverInput()->UpdateScalarComponent(joystickXHandle, 0.95f, 0);
+	} else
+	{
+		VRDriverInput()->UpdateScalarComponent(trackpadXHandle, 0, 0);
+		VRDriverInput()->UpdateScalarComponent(joystickXHandle, 0, 0);
+	}
+	
+
 	//VRDriverInput()->UpdateBooleanComponent(trackpadClickHandle, true, 0);
 	//VRDriverInput()->UpdateBooleanComponent(trackpadTouchHandle, true, 0);
-
-	VRDriverInput()->UpdateScalarComponent(joystickXHandle, (r > 50) ? -0.5f : 0.5f, 0); 
-	VRDriverInput()->UpdateScalarComponent(joystickYHandle, 0.95f, 0);
+	
 	//VRDriverInput()->UpdateBooleanComponent(joyStickClickHandle, true, 0);
 	//VRDriverInput()->UpdateBooleanComponent(joyStickTouchHandle, true, 0);
+
+	// Trigger
 	if (GetAsyncKeyState(69) & 0x8000)
 	{
 		VRDriverInput()->UpdateBooleanComponent(triggerTouchHandle, true, 0);

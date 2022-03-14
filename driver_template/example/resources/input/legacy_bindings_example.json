@@ -30,6 +30,21 @@
           },
           "mode": "trackpad",
           "path": "/user/treadmill/input/trackpad"
+        },
+		{
+          "inputs": {
+            "click": {
+              "output": "/actions/legacy/in/right_axis0_press"
+            },
+            "position": {
+              "output": "/actions/legacy/in/right_axis0_value"
+            },
+            "touch": {
+              "output": "/actions/legacy/in/right_axis0_touch"
+            }
+          },
+          "mode": "joystick",
+          "path": "/user/treadmill/input/joystick"
         }
       ]
     }
