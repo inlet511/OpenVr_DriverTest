@@ -2,6 +2,7 @@
   "jsonid": "input_profile",
   "controller_type": "example_controller",
   "device_class": "TrackedDeviceClass_Controller",
+  "legacy_binding": "{example}/input/legacy_bindings_example.json",  
   "resource_root" : "example",  
   "input_bindingui_mode": "single_device",
   "input_bindingui_right": {
