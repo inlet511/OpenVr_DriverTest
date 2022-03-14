@@ -1,51 +1,46 @@
 {
-   "bindings" : {
-      "/actions/legacy" : {
-	  "haptics" : [
-         ],
-	 "poses" : [
-	 ],
-	 "sources" : [
-		{
-		   "inputs" : {
-			  "position" : {
-				 "output" : "/actions/legacy/in/left_axis0_value"
-			  },
-			  "click":{
-				  "output" : "/actions/legacy/in/left_axis0_press"
-			  },
-			  "touch":{
-				  "output" : "/actions/legacy/in/left_axis0_touch"
-			  }
-		   },
-		   "mode" : "trackpad",
-		   "path" : "/user/treadmill/input/trackpad"
-		},
-		{
-		   "inputs" : {
-			  "position" : {
-				 "output" : "/actions/legacy/in/left_axis0_value"
-			  },
-			  "click" :{
-				  "output": "/actions/legacy/in/left_axis0_press"
-			  },
-			  "touch":{
-				  "output" : "/actions/legacy/in/left_axis0_touch"
-			  }
-		   },
-		   "mode" : "joystick",
-		   "path" : "/user/treadmill/input/joystick"
-		}
-	 ]
-      }
-   },
-   "category" : "legacy",
-   "controller_type" : "example_controller",
-   "description" : "Legacy mapping for example",
-   "name" : "Legacy_Binding_Example",
-   "options" : {
-      "mirror_actions" : false,
-      "returnBindingsWithLeftHand" : true,
-      "simulated_controller_type" : "none"
+  "bindings": {
+    "/actions/legacy": {
+      "haptics": [],
+      "poses": [],
+      "sources": [
+        {
+          "inputs": {
+            "pull": {
+              "output": "/actions/legacy/in/right_axis1_value"
+            },
+            "touch": {
+              "output": "/actions/legacy/in/right_axis1_touch"
+            }
+          },
+          "mode": "trigger",
+          "path": "/user/treadmill/input/trigger"
+        },
+        {
+          "inputs": {
+            "click": {
+              "output": "/actions/legacy/in/right_axis0_press"
+            },
+            "position": {
+              "output": "/actions/legacy/in/right_axis0_value"
+            },
+            "touch": {
+              "output": "/actions/legacy/in/right_axis0_touch"
+            }
+          },
+          "mode": "trackpad",
+          "path": "/user/treadmill/input/trackpad"
+        }
+      ]
     }
+  },
+  "category": "legacy",
+  "controller_type": "example_controller",
+  "description": "Legacy mapping for example",
+  "name": "Legacy_Binding_Example",
+  "options": {
+    "mirror_actions": false,
+    "returnBindingsWithLeftHand": true,
+    "simulated_controller_type": "none"
+  }
 }

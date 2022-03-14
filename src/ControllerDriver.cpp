@@ -7,16 +7,15 @@ EVRInitError ControllerDriver::Activate(uint32_t unObjectId)
 
 	PropertyContainerHandle_t props = VRProperties()->TrackedDeviceToPropertyContainer(driverId); //this gets a container object where you store all the information about your driver
 
-	VRProperties()->SetStringProperty(props, Prop_InputProfilePath_String, "{example}/input/controller_profile.json"); //tell OpenVR where to get your driver's Input Profile
+	VRProperties()->SetStringProperty(props, Prop_InputProfilePath_String, "{example}/resources/input/controller_profile.json"); //tell OpenVR where to get your driver's Input Profile
 	VRProperties()->SetInt32Property(props, Prop_ControllerRoleHint_Int32, ETrackedControllerRole::TrackedControllerRole_Treadmill); //tells OpenVR what kind of device this is
 	VRProperties()->SetBoolProperty(props, Prop_NeverTracked_Bool, true);
 	VRProperties()->SetStringProperty(props, Prop_SerialNumber_String, "example_controler");
 	VRProperties()->SetStringProperty(props, Prop_RegisteredDeviceType_String, "openvr_treadmill_controller");
-	VRProperties()->SetInt32Property(props, vr::Prop_ControllerRoleHint_Int32, TrackedControllerRole_Treadmill);
-	//VRProperties()->SetInt32Property(props, Prop_Axis0Type_Int32, k_eControllerAxis_TrackPad);
-	//VRProperties()->SetInt32Property(props, Prop_Axis2Type_Int32, k_eControllerAxis_Joystick);
-// 
-	VRDriverInput()->CreateBooleanComponent(props, "/input/anything/x", &boolHandle);
+	VRProperties()->SetInt32Property(props, Prop_Axis0Type_Int32, k_eControllerAxis_TrackPad);
+	VRProperties()->SetInt32Property(props, Prop_Axis1Type_Int32, k_eControllerAxis_Joystick);
+
+	//VRDriverInput()->CreateBooleanComponent(props, "/input/anything/x", &boolHandle);
 
 	VRDriverInput()->CreateScalarComponent(props, "/input/joystick/x", &joystickXHandle, EVRScalarType::VRScalarType_Absolute, EVRScalarUnits::VRScalarUnits_NormalizedTwoSided);
 	VRDriverInput()->CreateScalarComponent(props, "/input/joystick/y", &joystickYHandle, EVRScalarType::VRScalarType_Absolute,EVRScalarUnits::VRScalarUnits_NormalizedTwoSided); 
@@ -27,6 +26,11 @@ EVRInitError ControllerDriver::Activate(uint32_t unObjectId)
 	VRDriverInput()->CreateScalarComponent(props, "/input/trackpad/x", &trackpadXHandle, EVRScalarType::VRScalarType_Absolute,EVRScalarUnits::VRScalarUnits_NormalizedTwoSided); 
 	//VRDriverInput()->CreateBooleanComponent(props, "/input/trackpad/touch", &trackpadTouchHandle);
 	//VRDriverInput()->CreateBooleanComponent(props, "/input/trackpad/click", &trackpadClickHandle);
+
+	VRDriverInput()->CreateBooleanComponent(props, "/input/trigger/touch", &triggerTouchHandle);
+	VRDriverInput()->CreateBooleanComponent(props, "/input/trigger/click", &triggerClickHandle);
+
+	VRDriverInput()->CreateScalarComponent(props, "/input/grip/value", &gripHandle, EVRScalarType::VRScalarType_Absolute, EVRScalarUnits::VRScalarUnits_NormalizedOneSided);
 
 
 	return VRInitError_None;
@@ -55,17 +59,17 @@ void ControllerDriver::RunFrame()
 {
 	int r = rand() % 100;
 
-	VRDriverInput()->UpdateScalarComponent(trackpadYHandle, 0.95f, 0); //move foward
-	VRDriverInput()->UpdateScalarComponent(trackpadXHandle, (r > 50) ? -0.5f : 0.5f, 0); //change the value to move sideways
+	VRDriverInput()->UpdateScalarComponent(trackpadYHandle, 0.95f, 0);
+	VRDriverInput()->UpdateScalarComponent(trackpadXHandle, (r > 50) ? -0.5f : 0.5f, 0); 
 	//VRDriverInput()->UpdateBooleanComponent(trackpadClickHandle, true, 0);
 	//VRDriverInput()->UpdateBooleanComponent(trackpadTouchHandle, true, 0);
 
-	VRDriverInput()->UpdateScalarComponent(joystickXHandle, (r > 50) ? -0.5f : 0.5f, 0); //change the value to move sideways
-	VRDriverInput()->UpdateScalarComponent(joystickYHandle, 0.95f, 0); //move forward	
+	VRDriverInput()->UpdateScalarComponent(joystickXHandle, (r > 50) ? -0.5f : 0.5f, 0); 
+	VRDriverInput()->UpdateScalarComponent(joystickYHandle, 0.95f, 0);
 	//VRDriverInput()->UpdateBooleanComponent(joyStickClickHandle, true, 0);
 	//VRDriverInput()->UpdateBooleanComponent(joyStickTouchHandle, true, 0);
 
-	VRDriverInput()->UpdateBooleanComponent(boolHandle, r>50, 0);
+	/*VRDriverInput()->UpdateBooleanComponent(boolHandle, r>50, 0);*/
 }
 
 void ControllerDriver::Deactivate()

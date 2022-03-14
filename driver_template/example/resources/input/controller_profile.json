@@ -1,26 +1,41 @@
 {
   "jsonid": "input_profile",
   "controller_type": "example_controller",
-  "legacy_binding": "{example}/input/legacy_bindings_example.json",
-  "device_class" : "TrackedDeviceClass_Controller",
+  "device_class": "TrackedDeviceClass_Controller",
+  "resource_root" : "example",  
   "input_bindingui_mode": "single_device",
-  "input_bindingui_left": {
-		"image": "{example}/icons/game_controller.svg"
+  "input_bindingui_right": {
+    "image": "{example}/icons/game_controller.svg"
   },
   "should_show_binding_errors": true,
   "input_source": {
-    "/input/joystick": {
-      "type": "joystick",
-      "click": false,
-      "touch": false,
-      "binding_image_point": [0,0]
+    "/input/trackpad": {
+      "type": "trackpad",
+	  "click" : false,
+	  "touch" : false,
+      "binding_image_point": [
+        66,
+        59
+      ],
+      "order": 2
     },
-	"/input/trackpad" : { 
-        "type" : "trackpad",
-        "binding_image_point" : [ 0, 0 ],
-        "force" : false,
-        "click" : false,
-        "touch" : false
+    "/input/trigger": {
+      "type": "trigger",
+	  "click":true,
+	  "touch":true,
+      "binding_image_point": [
+        41,
+        64
+      ],
+      "order": 1
+    },
+    "/input/system": {
+      "binding_image_point": [
+        66,
+        59
+      ],
+      "type": "button",
+      "order": 0
     }
   }
 }
