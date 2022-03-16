@@ -40,8 +40,8 @@
     },
 	"/input/joystick":{
 		"type":"joystick",
-		"click":true,
-		"touch":true,
+		"click":false,
+		"touch":false,
 		"binding_image_point":"[0,0],
 		"order":2
 	}

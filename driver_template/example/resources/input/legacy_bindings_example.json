@@ -17,15 +17,9 @@
           "path": "/user/treadmill/input/trigger"
         },
         {
-          "inputs": {
-            "click": {
-              "output": "/actions/legacy/in/right_axis0_press"
-            },
+          "inputs": {         
             "position": {
               "output": "/actions/legacy/in/right_axis0_value"
-            },
-            "touch": {
-              "output": "/actions/legacy/in/right_axis0_touch"
             }
           },
           "mode": "trackpad",
@@ -33,14 +27,8 @@
         },
 		{
           "inputs": {
-            "click": {
-              "output": "/actions/legacy/in/right_axis0_press"
-            },
             "position": {
               "output": "/actions/legacy/in/right_axis0_value"
-            },
-            "touch": {
-              "output": "/actions/legacy/in/right_axis0_touch"
             }
           },
           "mode": "joystick",
